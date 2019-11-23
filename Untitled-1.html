@@ -44,18 +44,18 @@
 <body>
 
 
-        <p>Click the button to remove the first row in the table.</p>
+    <p>Click the button to remove the first row in the table.</p>
 
-        <button onclick="myFunction()">Try it</button>
-        <button onclick="FunctionCrX()">Try it FunctionCrX</button>
-        <button onclick="add2Function()">Try it Function add 2</button>
+    <button onclick="myFunction()">Try it</button>
+    <button onclick="FunctionCrX()">Try it FunctionCrX</button>
+    <button onclick="add2Function()">Try it Function add 2</button>
     <table id="customers">
         <tr>
-            <th>Company</th>
-            <th>Contact</th>
-            <th>Country</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
         </tr>
-        <tr>
+        <!--   <tr>
             <td>Alfreds Futterkiste</td>
             <td>Maria Anders</td>
             <td>Germany</td>
@@ -108,7 +108,7 @@
                     document.write(Date());
                 </script>
             </td>
-        </tr>
+        </tr> -->
     </table>
 
 
@@ -117,6 +117,38 @@
 
 
     <script>
+
+        var x = 0;
+
+
+        var timeoutID = window.setInterval((() => {
+
+
+
+            console.log("Hello!");
+
+            var table = document.getElementById("customers");
+
+            var footer = table.createTFoot();
+            var row = footer.insertRow()
+
+            for (var i = 0; i < 3; i++) {
+                var cell1 = row.insertCell(i);
+                cell1.innerHTML = "NEW CELL " + "\"" + x + "." + i + "\"";
+
+            }
+            x++;
+
+            if (x >= 50) {
+
+                window.clearInterval(timeoutID);
+
+            }
+
+        }
+        ), 50);
+
+
         function myFunction() {
             var x = document.getElementById("customers");
             x.deleteRow(0);
